@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 vcenter">
+      <h3>All Transactions</h3>
+    </div>
+    <div class="col-md-6 button-column">
+      <div class="button-container">
+        <button class="minimize fa fa-window-minimize" data-toggle="collapse" data-target="#table" aria-expanded="false" aria-hidden="true"></button>        &nbsp;&nbsp;Collapse
+      </div>
+    </div>
+  </div>
+  <p class="subheading">See transactions below or add a new one</p>
+  <div class="table-responsive panel panel-default collapse in" id="table">
+    <table class="table table-bordered table-hover table-striped">
+      <thead>
+        <tr class="heading">
+          <th class="check-column"></th>
+          <th>Vehicle Type</th>
+          <th>License Plate</th>
+          <th>Mud in Bed</th>
+          <th>Bed let Down</th>
+          <th>First Visit</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts" class="table-row">
+          <td class="check-column">
+            <input type="checkbox" (change)="checkItem($event, contact)">
+          </td>
+          <td>{{contact.type}}</td>
+          <td>{{contact.licensePlate}}</td>
+          <td>{{contact.ifMudBed}}</td>
+          <td>{{contact.ifBedDown}}</td>
+          <td>{{contact.ifFirstVisit}}</td>
+          <td>{{contact.total}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-danger" (click)="removeItems()">Delete Checked Entries</button>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="add-entry">Create Transition</h3>
+    </div>
+  </div>
+  <form id="edit-form">
+    <div class="form-group">
+      <label for="type">Type of Vehicle</label>
+      <div class="radio" *ngFor="let choice of carChoices">
+        <label>
+          <input type="radio" (change)="getTotal()" name="type" [(ngModel)]="type" [value]="choice.value">
+          {{choice.text}}
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type">License Plate</label>
+      <div class="text">
+        <label>
+          <input type="input" (change)="getTotal()" name="licensePlate" [(ngModel)]="licensePlate" placeholder="XXXXXX">
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">Is there mud in the bed?</label>
+      <div class="radio" *ngFor="let choice of mudChoices">
+        <label>
+          <input type="radio" (change)="getTotal()" name="ifMudBed" [(ngModel)]="ifMudBed" [value]="choice.value">
+          {{choice.text}}
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Is the bed down?</label>
+      <div class="radio" *ngFor="let choice of bedDownChoices">
+        <label>
+          <input type="radio" (change)="getTotal()" name="ifBedDown" [(ngModel)]="ifBedDown" [value]="choice.value">
+          {{choice.text}}
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Total</label>
+      <input [(ngModel)]="total" disabled="disabled" type="text" name="email" class="form-control" [value]="0">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addEntry();">Add Entry</button>
+  </form>
+</div>

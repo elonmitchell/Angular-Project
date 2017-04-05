@@ -1,0 +1,57 @@
+$light-blue: rgb(75,169,223);
+$grey: rgb(203,203,203);
+
+h3 {
+  float: left;
+  color: $light-blue;
+}
+
+.add-entry {
+  padding-bottom: 15px;
+}
+
+.subheading {
+  padding-bottom: 30px;
+}
+
+.button-column {
+  padding-top: 30px;
+}
+
+.button-container {
+  position:relative;
+  float: right;
+  right: -25px;
+  button {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 4px;
+    border-radius: 6px;
+    border: 1px solid $grey;
+    background: transparent;
+    &:focus {
+      outline: none;
+    }
+
+  }
+}
+
+.table {
+  .heading th {
+    color: $light-blue;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    padding-left: 21px;
+  }
+  .table-row {
+    td {
+      padding-left: 21px;
+      vertical-align: middle;
+      &.check-column input {
+        font-size: x-large;
+        vertical-align: middle;
+        padding-left: 0;
+      }
+    }
+  }
+}

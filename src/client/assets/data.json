@@ -1,0 +1,10 @@
+[
+  {
+    "type": "Car",
+    "ifMudBed": false,
+    "ifBedDown": false,
+    "ifFirstVisit": true,
+    "licensePlate": "111",
+    "total": 5
+  }
+]
